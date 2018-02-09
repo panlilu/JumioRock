@@ -10,7 +10,7 @@ module JumioRock
     def initialize(scan_reference, front_side_image_path, back_side_image_path, face_image)
       @merchantIdScanReference = scan_reference
       @frontsideImage = encode_image front_side_image_path
-      @backsideImagePath = encode_image back_side_image_path
+      @backsideImage = encode_image back_side_image_path
       @faceImage = encode_image face_image
     end
 
