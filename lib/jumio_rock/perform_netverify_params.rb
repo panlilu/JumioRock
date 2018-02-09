@@ -5,7 +5,7 @@ module JumioRock
     IMAGE_MAX_SIZE = 5 *1024 *1014
 
     attr_accessor :callbackUrl
-    attr_reader :merchantIdScanReference, :frontsideImage, :backsideImagePath, :faceImage
+    attr_reader :merchantIdScanReference, :frontsideImage, :backsideImage, :faceImage
 
     def initialize(scan_reference, front_side_image_path, back_side_image_path, face_image)
       @merchantIdScanReference = scan_reference
