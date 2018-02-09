@@ -5,11 +5,13 @@ module JumioRock
     IMAGE_MAX_SIZE = 5 *1024 *1014
 
     attr_accessor :callbackUrl
-    attr_reader :merchantIdScanReference, :frontsideImage
+    attr_reader :merchantIdScanReference, :frontsideImage, :backsideImagePath, :faceImage
 
-    def initialize(scan_reference, front_side_image_path)
+    def initialize(scan_reference, front_side_image_path, back_side_image_path, face_image)
       @merchantIdScanReference = scan_reference
-      encode_image front_side_image_path
+      @frontsideImage = encode_image front_side_image_path
+      @backsideImagePath = encode_image back_side_image_path
+      @faceImage = encode_image face_image
     end
 
     private 
@@ -22,7 +24,7 @@ module JumioRock
     def encode(str)
       image_base64 = Base64.encode64(str)
       raise "image max size 5MB"  unless check_image_size(image_base64.bytesize())
-      @frontsideImage = image_base64.gsub(/\n/, "")
+      image_base64.gsub(/\n/, "")
     end
 
     def check_image_size(bytesize)

@@ -12,8 +12,8 @@ module JumioRock
       @initialization_type = nil
     end
 
-    def call_api(scan_reference, front_side_image_path, options = {})
-      body = PerformNetverifyParams.new(scan_reference, front_side_image_path)
+    def call_api(scan_reference, front_side_image_path, back_side_image_path, face_image_path, options = {})
+      body = PerformNetverifyParams.new(scan_reference, front_side_image_path, back_side_image_path, face_image_path)
       body = set_options body, options
       post(api_url, body.to_json)
     end
